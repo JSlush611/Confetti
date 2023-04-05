@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confetti Cuisine</title>
+    <link rel="stylesheet" href="/css/confetti.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="navbar-logo" style="float:left;">
+          <a href="/" class="logo-link">
+            <div class="logo-container">
+              <img src="/images/insta1.jpg" alt="Confetti Cuisine Logo" class="logo-img">
+              <div class="logo-text">Confetti Cuisine</div>
+            </div>
+          </a>
+        </div>
+        <div class="navbar-links" style="float:left; margin: 0 auto;">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/courses" class="nav-link">Courses</a>
+          <a href="/subscribers" class="nav-link">Subscribers</a>
+          <a href="/users" class="nav-link">Users</a>
+        </div>
+        <% if (loggedIn) { %>
+          <div class="navbar-logged-in" style="float:right;">
+            <a href="<%=`/users/${currentUser._id}`%>" class="nav-link-small">
+              Welcome: <%= currentUser.fullName %></a>
+            <a href="/users/logout" class="nav-link-small">Log Out</a>
+          </div>
+        <%} else {%>
+          <div class="navbar-log-in" style="float:right;">
+            <a href="/users/login" class="nav-link-small">Log In</a>
+          </div>
+        <% } %>
+        OK
+      </nav>
+    </header>
+  
+    
+
+    <main class="main">
+      <div class="flashes">
+        <% if (flashMessages) { %>
+          <% if (flashMessages.success) { %>
+            <div class="flash success"><%= flashMessages.success %></div>
+          <% } else if (flashMessages.error) { %>
+            <div class="flash error"><%= flashMessages.error %></div>
+          <% } %>
+        <% } %>
+      </div>
+      <%- body %>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-text">&copy; Confetti Cuisine 2023. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.logo-img {
+  height: 50px;
+  margin-right: 0.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  margin-right: 2rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: blue;
+}
+
+.navbar-logged-in {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-small {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-link-small:hover {
+  color: blue;
+}
+</style>

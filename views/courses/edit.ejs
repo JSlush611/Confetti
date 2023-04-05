@@ -1,0 +1,87 @@
+<div class="data-form" >
+    <form method="POST" action="<%=`/courses/${courses._id}/update?_method=PUT`.trim() %>"
+       <h2>Edit Course:</h2>
+       <label for="inputFirstName">Title</label>
+       <input type="text" name="t" id="inputFirstName" value="<%=
+          courses.title %>" placeholder="Title" autofocus>
+       <label for="inputPassword">Description</label>
+       <input type="text" name="description" id="inputPassword"
+          value="<%= courses.description %>" placeholder="Description" required>
+        <label for="items">Items</label>
+        <input type="text" name="items" id="items"
+        value = "<%= courses.items  %>" placeholder="Items" required>
+       <label for="inputZipCode">Zip Code</label>
+       <input type="text" name="zipCode" id="inputZipCode"
+          pattern="\d{5}" value="<%= courses.zipCode %>" placeholder="Zip
+          Code" required>
+       <button type="submit">Update</button>
+    </form>
+ </div>
+ 
+
+ <style>
+    .data-form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    label {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+  
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #4c9cef;
+      box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.1), 0 0 5px rgba(76, 156, 239, 0.5);
+      outline: none;
+    }
+  
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1.1rem;
+      color: #fff;
+      background-color: #4c9cef;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+  
+    button[type="submit"]:hover {
+      background-color: #357ebd;
+    }
+  
+    button[type="submit"]:focus {
+      outline: none;
+    }
+  
+  </style>

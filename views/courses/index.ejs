@@ -1,0 +1,66 @@
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    th, td {
+      text-align: center;
+      padding: 15px;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  
+    td {
+      background-color: #fff;
+      font-size: 1.1rem;
+      border: 1px solid #ccc;
+    }
+  
+    tr:hover {
+      background-color: #f2f2f2;
+    }
+  
+  </style>
+
+<h2>Course Table</h2>
+ <table class="table">
+   <thead>
+     <tr>
+       <th>Title</th>
+       <th>Description</th>
+       <th>Items</th>
+       <th>Zip Code</th>
+       <th>Edit</th>
+       <th>Delete</th>
+     </tr>
+   </thead>
+   <tbody>
+    courses
+     <% courses.forEach(courses => { %>
+     <tr>
+        <td>
+            <a href="<%= `/courses/${courses._id}` %>">
+              <%=courses.title%>
+            </a>
+          </td> 
+       <td><%= courses.description %></td>
+       <td><%= courses.items %></td>      
+       <td><%= courses.zipCode%></td>
+       <td><a href="<%= `/courses/${courses._id}/edit` %>">Edit</a></td>
+       <td><a href="" onclick="if (confirm('Are you sure you want to delete this course?')) { window.location.href = '<%= `/courses/${courses._id}/delete` %>' }">Delete</a></td>
+    </tr>
+     <% }); %>
+   </tbody>
+ </table>
+
+ <br>
+ <a href="<%=`/courses/new`%>"><b>Create New Course</b></a>
+ 

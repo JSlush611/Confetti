@@ -1,0 +1,63 @@
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    th, td {
+      text-align: center;
+      padding: 15px;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  
+    td {
+      background-color: #fff;
+      font-size: 1.1rem;
+      border: 1px solid #ccc;
+    }
+  
+    tr:hover {
+      background-color: #f2f2f2;
+    }
+  
+  </style>
+
+<h2>subscribers Table</h2>
+ <table class="table">
+   <thead>
+     <tr>
+       <th>Name</th>
+       <th>Email</th>
+       <th>Zip Code</th>
+       <th>Edit</th>
+       <th>Delete</th>
+     </tr>
+   </thead>
+   <tbody>
+     <% subscribers.forEach(subscribers => { %>
+     <tr>
+        <td>
+            <a href="<%= `/subscribers/${subscribers._id}` %>">
+              <%=subscribers.name%>
+            </a>
+          </td>       
+       <td><%= subscribers.email %></td>
+       <td><%= subscribers.zipCode%></td>
+       <td><a href="<%= `/subscribers/${subscribers._id}/edit` %>">Edit</a></td>
+       <td><a href="" onclick="if (confirm('Are you sure you want to delete this user?')) { window.location.href = '<%= `/subscribers/${subscribers._id}/delete` %>' }">Delete</a></td>
+    </tr>
+     <% }); %>
+   </tbody>
+ </table>
+
+ <br>
+ <a href="<%=`/subscribers/new`%>"><b>Create New Subscriber</b></a>
+ 
