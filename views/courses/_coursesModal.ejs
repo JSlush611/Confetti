@@ -1,0 +1,50 @@
+<button id="modal-button" type="button" data-toggle="modal"
+ data-target="#myModal">Latest Courses</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+
+<style>
+    .modal-body {
+        background-color: grey;
+    }
+
+    .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    }
+    .course-container {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.course-title {
+  font-weight: bold;
+}
+
+.course-title-value {
+  margin-left: 10px;
+}
+
+.course-description {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.course-description-value {
+  margin-left: 10px;
+}
+</style>

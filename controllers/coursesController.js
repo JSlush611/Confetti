@@ -58,8 +58,12 @@ module.exports = {
         })
       },
 
-      indexView: (req, res, next) => {
-        res.render("courses/index")
+      indexView: (req, res) => {
+        if (req.query.format === "json") {
+          res.json(res.locals.courses);
+        } else {
+          res.render("courses/index");
+        }
       },
 
       delete: (req, res, next) => {

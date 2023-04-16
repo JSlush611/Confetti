@@ -184,5 +184,17 @@ module.exports = {
             next();
           }
         });
+      },
+
+      logout: (req, res, next) => {
+        req.logout((err) => {
+          if (err) {
+            console.log(`Error loggin out user: ${err}`);
+            next(err);
+          }
+        });
+        req.flash("success", "You have been logged out!");
+        res.locals.redirect = "/";
+        next();
       }
 }

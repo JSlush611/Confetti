@@ -6,6 +6,9 @@
     <title>Confetti Cuisine</title>
     <link rel="stylesheet" href="/css/confetti.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/recipeApp.js"></script>
   </head>
   <body>
     <header class="header">
@@ -23,6 +26,7 @@
           <a href="/courses" class="nav-link">Courses</a>
           <a href="/subscribers" class="nav-link">Subscribers</a>
           <a href="/users" class="nav-link">Users</a>
+          <h5> <%- include('./courses/_coursesModal') %> </h5>
         </div>
         <% if (loggedIn) { %>
           <div class="navbar-logged-in" style="float:right;">
@@ -30,12 +34,11 @@
               Welcome: <%= currentUser.fullName %></a>
             <a href="/users/logout" class="nav-link-small">Log Out</a>
           </div>
-        <%} else {%>
+        <% } else { %>
           <div class="navbar-log-in" style="float:right;">
             <a href="/users/login" class="nav-link-small">Log In</a>
           </div>
         <% } %>
-        OK
       </nav>
     </header>
   
